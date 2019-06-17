@@ -24,6 +24,9 @@ const game = ()=> {
 
         options.forEach(option=>{
             // with this part I had to use a normal funtion otherwise it would not bounce to option 
+
+            console.log(option);
+
             option.addEventListener('click',function(){
                 //computer choice
                 const computerNumber= Math.floor(Math.random() *3);
