@@ -1,0 +1,92 @@
+/*this is for the complete doc*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*for the whole page*/
+section {
+    height: 100vh;
+    background-color: rgb(39, 41, 68);
+    font-family: sans-serif;
+}
+/*for the score*/
+.score {
+    color: bisque;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+/*player and computer written*/
+.score h2 {
+    font-size: 30px;
+}
+/*the score itself*/
+.score p {
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+}
+/*blad steen schaar & let's play!*/
+.intro {
+    color: bisque;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    opacity: 0;
+}
+/*The h1 from the intro written*/
+.intro h1 {
+    font-size: 50px;
+}
+/*the buttons*/
+.intro button,
+.match button {
+    width: 150 px;
+    height: 50 px;
+    background: none;
+    border:none;
+    color: blueviolet;
+    font-size: 50 px;
+    background: blueviolet;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/*the game*/
+.match {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*it says winner or loser*/
+.winner {
+    color: bisque;
+    text-align: center;
+    font-size: 50px;  
+}
+/*the hand options*/
+.hands, 
+.options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*rotate players hand*/
+.player-hand {
+    transform: rotateY(180deg);
+}
+/*fade out*/
+div.fadOut{
+    opacity: 0;
+    pointer-events: none;
+}
+/*fade in*/
+div.fadeIn {
+    opacity: 1;
+    pointer-events: all;
+}
