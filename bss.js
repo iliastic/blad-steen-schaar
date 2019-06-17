@@ -18,7 +18,7 @@ const game = ()=> {
     const playMatch= () => {
         const options = document.querySelectorAll('.options button');
         const playerHand = document.querySelector ('.player-hand');
-        const computerhand = document.querySelector('computer-hand');
+        const computerHand = document.querySelector('computer-hand');
         //computer Options
         const computerOptions =['rock', 'paper','scissors'];
 
@@ -27,14 +27,69 @@ const game = ()=> {
             option.addEventListener('click',function(){
                 //computer choice
                 const computerNumber= Math.floor(Math.random() *3);
-                const computerChoise = computerOptions[computerNumber];
+                const computerChoice = computerOptions[computerNumber];
+                //here is where we call compare hands
+                compareHands(this.textContent, computerChoice);
+                //update images
+                playerHand.src ='./assets/${this.textContent}.png';
+                computerHand.src = './assets/${computerChoice}.png'; 
             });
         });
     };
 
-        const computerNumber= Math.floor(Math.random() *3);
-
+    const updateScore = () =>{
+        const playerScore = document.querySelector ('.player-score p');
+        const computerScore = document.querySelector ('.computer-score p');
+        playerScore.textContent = pScore;
+        computerScore.textContent =cScore;
     };
+
+const compareHands =(playerChoice, computerChoice) => {
+    //update text
+    const winner = document.querySelector('.winner');
+    //checking for a tie 
+    if(playerChoice === computerChoice){
+        winner.textContent = 'It is a tie';
+        return;
+
+    }
+    //check for rock
+    if(playerChoice === 'rock'){
+        if(computerChoice === 'scissors'){
+            winner.textContent = 'Player wins';
+            pScore++;
+            return;
+        }else{
+            winner.textContent = 'Computer wins';
+            cScore++;
+            return;
+        }
+    }
+    // Check for paper
+    if(playerChoice === 'paper'){
+        if(computerChoice === 'scissors'){
+            winner.textContent = 'Computer wins';
+            cScore++;
+            return;
+        }else{
+            winner.textContent = 'Player wins';
+            pScore++;
+            return;
+        }
+    }
+    // Check for scissors
+    if(playerChoice === 'scissors'){
+        if(computerChoice === 'rock'){
+            winner.textContent = 'Computer wins';
+            cScore++;
+            return;
+        }else{
+            winner.textContent = 'Player wins';
+            pScore++;
+            return;
+        }
+    }
+}
 
     //call all the inner function
     startgame();
