@@ -17,16 +17,28 @@ const game = ()=> {
     //play match
     const playMatch= () => {
         const options = document.querySelectorAll('.options button');
-        const playeHand = document.querySelector ('.player-hand');
+        const playerHand = document.querySelector ('.player-hand');
         const computerhand = document.querySelector('computer-hand');
         //computer Options
         const computerOptions =['rock', 'paper','scissors'];
+
+        options.forEach(option=>{
+            // with this part I had to use a normal funtion otherwise it would not bounce to option 
+            option.addEventListener('click',function(){
+                //computer choice
+                const computerNumber= Math.floor(Math.random() *3);
+                const computerChoise = computerOptions[computerNumber];
+            });
+        });
+    };
+
+        const computerNumber= Math.floor(Math.random() *3);
 
     };
 
     //call all the inner function
     startgame();
-    updateScore();
+    playMatch();
 };
 
 //start game function
